@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aslzoda | Web System</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+<!-- ====================================== -->
+<!-- ========== LOADING SCREEN ============ -->
+<!-- ====================================== -->
+<div id="loading" class="page active">
+  <div class="loader">
+    <div class="ring"></div>
+    <h2>Aslzoda System</h2>
+  </div>
+</div>
+
+<!-- ====================================== -->
+<!-- ============ LOGIN =================== -->
+<!-- ====================================== -->
+<div id="login" class="page hidden">
+  <div class="wrapper">
+    <form>
+      <h1>Login</h1>
+
+      <div class="input-box">
+        <input type="text" placeholder="Username" required>
+        <i class='bx bx-user'></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Password" required>
+        <i class='bx bx-lock-alt'></i>
+      </div>
+
+      <button type="button" onclick="goTo('dashboard')" class="btn">Login</button>
+
+      <div class="register-link">
+        <p><a href="#" onclick="goTo('forgot')">Forgot password?</a></p>
+        <p>Don't have an account? <a href="#" onclick="goTo('register')">Register</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ====================================== -->
+<!-- ============ REGISTER ================ -->
+<!-- ====================================== -->
+<div id="register" class="page hidden">
+  <div class="wrapper">
+    <form>
+      <h1>Create Account</h1>
+
+      <div class="input-box">
+        <input type="text" placeholder="Full Name" required>
+        <i class='bx bx-user'></i>
+      </div>
+
+      <div class="input-box">
+        <input type="email" placeholder="Email" required>
+        <i class='bx bx-envelope'></i>
+      </div>
+
+      <div class="input-box">
+        <input type="text" placeholder="Username" required>
+        <i class='bx bx-id-card'></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" placeholder="Password" required>
+        <i class='bx bx-lock-alt'></i>
+      </div>
+
+      <button type="button" onclick="goTo('login')" class="btn">Register</button>
+
+      <div class="register-link">
+        <p>Already have an account?
+          <a href="#" onclick="goTo('login')">Login</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ====================================== -->
+<!-- ======== FORGOT PASSWORD ============= -->
+<!-- ====================================== -->
+<div id="forgot" class="page hidden">
+  <div class="wrapper">
+    <form>
+      <h1>Reset Password</h1>
+
+      <div class="input-box">
+        <input type="email" placeholder="Your Email" required>
+        <i class='bx bx-envelope'></i>
+      </div>
+
+      <button type="button" onclick="goTo('login')" class="btn">Send Reset Link</button>
+
+      <div class="register-link">
+        <p><a href="#" onclick="goTo('login')">Back to Login</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ====================================== -->
+<!-- ============== DASHBOARD ============= -->
+<!-- ====================================== -->
+<div id="dashboard" class="page hidden">
+  <div class="sidebar">
+    <h2>Aslzoda</h2>
+    <a onclick="goTo('dashboard')"><i class='bx bxs-dashboard'></i> Dashboard</a>
+    <a onclick="goTo('profile')"><i class='bx bxs-user'></i> Profile</a>
+    <a onclick="goTo('login')"><i class='bx bx-log-out'></i> Logout</a>
+  </div>
+
+  <div class="content">
+    <h1>Welcome, Aslzoda!</h1>
+
+    <div class="cards">
+      <div class="card">
+        <i class='bx bxs-user'></i>
+        <h3>245 Users</h3>
+      </div>
+
+      <div class="card">
+        <i class='bx bxs-bar-chart-alt-2'></i>
+        <h3>Statistics</h3>
+      </div>
+
+      <div class="card">
+        <i class='bx bxs-cog'></i>
+        <h3>Settings</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================================== -->
+<!-- =============== PROFILE ============== -->
+<!-- ====================================== -->
+<div id="profile" class="page hidden center-page">
+  <div class="profile-box">
+    <img src="https://i.ibb.co/2k46t5C/user.png">
+
+    <h2>Aslzoda Bozorboyeva</h2>
+    <p>Mobile Developer</p>
+
+    <div class="info">
+      <p><b>Email:</b> aslzoda@example.com</p>
+      <p><b>Username:</b> aslzoda_dev</p>
+    </div>
+
+    <button onclick="goTo('dashboard')" class="btn">Back</button>
+  </div>
+</div>
+
+<!-- ====================================== -->
+<!-- =========== LOGIC - JS =============== -->
+<!-- ====================================== -->
+<script>
+setTimeout(() => {
+  goTo("login");
+}, 2300);
+
+function goTo(page) {
+  document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
+  document.getElementById(page).classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
